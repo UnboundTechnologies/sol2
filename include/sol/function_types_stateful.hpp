@@ -120,7 +120,7 @@ namespace sol { namespace function_detail {
 		: var(std::move(v)), member(std::forward<Args>(args)...) {
 		}
 
-		static int call(lua_State* L, member_variable& self) noexcept(std::is_nothrow_copy_assignable_v<T>) {
+		static int call(lua_State* L, member_variable& self) {
 			int nr;
 			{
 				M mem = detail::unwrap(detail::deref(self.member));
